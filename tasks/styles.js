@@ -2,17 +2,17 @@
 
 const $ = require('gulp-load-plugins')();
 const gulp = require('gulp');
-const combine = require('stream-combiner2').obj;
+const multipipe = require('multipipe');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 module.exports = function(options) {
 
   return function() {
-    return combine(
+    return multipipe(
         gulp.src(options.src),
         $.if(isDevelopment, $.sourcemaps.init()),
-        $.stylus(),
+        $.sass(),
         $.if(isDevelopment, $.sourcemaps.write()),
         gulp.dest('public')
     ).on('error', $.notify.onError());

@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const through2 = require('through2').obj;
 const fs = require('fs');
-const combine = require('stream-combiner2').obj;
+const multipipe require('multipipe');
 
 module.exports = function(options) {
 
@@ -28,8 +28,7 @@ module.exports = function(options) {
               file.eslint = eslintResults[file.path].eslint;
               callback(null, file);
             }),
-            combine(
-                through2(function(file, enc, callback) {
+            multipipe                through2(function(file, enc, callback) {
                   file.contents = fs.readFileSync(file.path);
                   callback(null, file);
                 }),

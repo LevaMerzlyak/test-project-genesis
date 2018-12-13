@@ -13,17 +13,17 @@ function lazyRequireTask(taskName, path, options) {
 }
 
 lazyRequireTask('styles', './tasks/styles', {
-  src: 'frontend/styles/main.styl'
+  src: 'app/styles/main.scss'
 });
 
 lazyRequireTask('clean', './tasks/clean', {
-  dst: 'public'
+  dst: 'dist'
 });
 
 
 lazyRequireTask('assets', './tasks/assets', {
-  src: 'frontend/assets/**',
-  dst: 'public'
+  src: 'app/index.html',
+  dst: 'dist'
 });
 
 
@@ -33,13 +33,13 @@ gulp.task('build', gulp.series(
 );
 
 gulp.task('watch', function() {
-  gulp.watch('frontend/styles/**/*.*', gulp.series('styles'));
+  gulp.watch('app/styles/**/*.*', gulp.series('styles'));
 
-  gulp.watch('frontend/assets/**/*.*', gulp.series('assets'));
+  gulp.watch('app/index.html', gulp.series('assets'));
 });
 
 lazyRequireTask('serve', './tasks/serve', {
-  src: 'public'
+  src: 'dist'
 });
 
 
@@ -49,5 +49,5 @@ gulp.task('dev',
 
 lazyRequireTask('lint', './tasks/lint', {
   cacheFilePath: process.cwd() + '/tmp/lintCache.json',
-  src: 'frontend/**/*.js'
+  src: 'app/**/*.js'
 });
