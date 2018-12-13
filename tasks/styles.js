@@ -14,6 +14,7 @@ module.exports = function(options) {
         $.if(isDevelopment, $.sourcemaps.init()),
         $.sass(),
         $.if(isDevelopment, $.sourcemaps.write()),
+        $.autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }),
         gulp.dest(options.dst)
     ).on('error', $.notify.onError());
   };
