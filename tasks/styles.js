@@ -14,7 +14,7 @@ module.exports = function(options) {
         $.if(isDevelopment, $.sourcemaps.init()),
         $.sass(),
         $.if(isDevelopment, $.sourcemaps.write()),
-        gulp.dest('public')
+        gulp.dest(options.dst)
     ).on('error', $.notify.onError());
   };
 
