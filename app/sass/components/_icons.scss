@@ -1,0 +1,12 @@
+/* Icons */
+.icon {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	&_logo {
+		background-image: url(../images/logo.png);
+	}
+}
