@@ -26,6 +26,11 @@ lazyRequireTask('clean', './tasks/clean', {
   dst: 'dist'
 });
 
+lazyRequireTask('images', './tasks/move', {
+  src: 'app/images/**/*.{png,jpg,svg}',
+  dst: 'dist/images'
+});
+
 lazyRequireTask('page', './tasks/move', {
   src: 'app/index.html',
   dst: 'dist'
@@ -34,13 +39,15 @@ lazyRequireTask('page', './tasks/move', {
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('sass', 'css', 'page'))
+    gulp.parallel('sass', 'css', 'images', 'page'))
 );
 
 gulp.task('watch', function() {
   gulp.watch('app/sass/**/*.*', gulp.series('sass'));
 
   gulp.watch('app/css/**/*.*', gulp.series('css'));
+
+  gulp.watch('app/images/**/*.*', gulp.series('images'));
 
   gulp.watch('app/index.html', gulp.series('page'));
 });
