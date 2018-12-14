@@ -17,7 +17,7 @@ lazyRequireTask('sass', './tasks/sass', {
   dst: 'dist/css'
 });
 
-lazyRequireTask('css', './tasks/css', {
+lazyRequireTask('css', './tasks/move', {
   src: 'app/css/**/*.*',
   dst: 'dist/css'
 });
@@ -26,8 +26,7 @@ lazyRequireTask('clean', './tasks/clean', {
   dst: 'dist'
 });
 
-
-lazyRequireTask('page', './tasks/page', {
+lazyRequireTask('page', './tasks/move', {
   src: 'app/index.html',
   dst: 'dist'
 });
