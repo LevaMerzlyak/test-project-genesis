@@ -12,9 +12,9 @@ function lazyRequireTask(taskName, path, options) {
   });
 }
 
-lazyRequireTask('styles', './tasks/styles', {
-  src: 'app/styles/main.scss',
-  dst: 'dist/styles'
+lazyRequireTask('sass', './tasks/sass', {
+  src: 'app/sass/main.scss',
+  dst: 'dist/css'
 });
 
 lazyRequireTask('clean', './tasks/clean', {
@@ -30,11 +30,11 @@ lazyRequireTask('assets', './tasks/assets', {
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('styles', 'assets'))
+    gulp.parallel('sass', 'assets'))
 );
 
 gulp.task('watch', function() {
-  gulp.watch('app/styles/**/*.*', gulp.series('styles'));
+  gulp.watch('app/sass/**/*.*', gulp.series('sass'));
 
   gulp.watch('app/index.html', gulp.series('assets'));
 });
