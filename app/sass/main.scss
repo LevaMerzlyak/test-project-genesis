@@ -10,6 +10,9 @@ html {
 *:after {
 	box-sizing: inherit;
 }
+body {
+	font-family: 'Muli', sans-serif;
+}
 
 @import 'components/icons';
 
@@ -34,11 +37,49 @@ html {
 	height: 24px;
 	text-indent: -9999px;
 }
-.nav {
+.header__nav {
+	width: 100%;
+	height: 100vh;
+	height: 0;
 	position: absolute;
-	top: 100%;
+	top: 0;
 	left: 0;
 	background-color: #16141a;
+	overflow: hidden;
+	transition: height 0.5s $ttf 0.5s;
+}
+.nav {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.nav__item {
+	text-align: center;
+}
+.nav__link {
+	display: inline-block;
+	color: #fff;
+	font-size: 15px;
+	font-style: normal;
+	font-stretch: normal;
+	font-weight: 700;
+	line-height: 44px;
+	text-transform: none;
+	text-decoration: none;
+	opacity: 0;
+	transition: opacity 0.5s $ttf 0s;
+}
+.header__nav_open {
+	height: 100vh;
+	transition: height 0.5s $ttf 0s;
+	.nav__link {
+		opacity: 1;
+		transition: opacity 0.5s $ttf 0.5s;
+	}
 }
 .menuBtn {
 	width: 44px;
