@@ -3,44 +3,71 @@
 const gulp = require('gulp');
 
 function lazyRequireTask(taskName, path, options) {
-  options = options || {};
-  options.taskName = taskName;
-  gulp.task(taskName, function(callback) {
-    let task = require(path).call(this, options);
+    options = options || {};
+    options.taskName = taskName;
+    gulp.task(taskName, function(callback) {
+        let task = require(path).call(this, options);
 
-    return task(callback);
+        return task(callback);
   });
 }
 
-lazyRequireTask('styles', './tasks/styles', {
-  src: 'app/styles/main.scss',
-  dst: 'dist/styles'
+lazyRequireTask('sass', './tasks/sass', {
+    src: 'app/sass/main.scss',
+    dst: 'dist/css'
+});
+
+lazyRequireTask('css', './tasks/move', {
+    src: 'app/css/**/*.*',
+    dst: 'dist/css'
 });
 
 lazyRequireTask('clean', './tasks/clean', {
-  dst: 'dist'
+    dst: 'dist'
 });
 
+lazyRequireTask('images', './tasks/move', {
+    src: 'app/images/**/*.{png,jpg,svg}',
+    dst: 'dist/images'
+});
 
-lazyRequireTask('assets', './tasks/assets', {
-  src: 'app/index.html',
-  dst: 'dist'
+lazyRequireTask('scripts', './tasks/move', {
+    src: 'app/js/**/*.*',
+    dst: 'dist/js'
+});
+
+lazyRequireTask('lib', './tasks/move', {
+    src: 'app/lib/**/*.*',
+    dst: 'dist/lib'
+});
+
+lazyRequireTask('page', './tasks/move', {
+    src: 'app/index.html',
+    dst: 'dist'
 });
 
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('styles', 'assets'))
+    gulp.parallel('sass', 'css', 'scripts', 'lib', 'images', 'page'))
 );
 
 gulp.task('watch', function() {
-  gulp.watch('app/styles/**/*.*', gulp.series('styles'));
+    gulp.watch('app/sass/**/*.*', gulp.series('sass'));
 
-  gulp.watch('app/index.html', gulp.series('assets'));
+    gulp.watch('app/css/**/*.*', gulp.series('css'));
+
+    gulp.watch('app/js/**/*.*', gulp.series('scripts'));
+
+    gulp.watch('app/lib/**/*.*', gulp.series('lib'));
+
+    gulp.watch('app/images/**/*.*', gulp.series('images'));
+
+    gulp.watch('app/index.html', gulp.series('page'));
 });
 
 lazyRequireTask('serve', './tasks/serve', {
-  src: 'dist'
+    src: 'dist'
 });
 
 
@@ -49,6 +76,6 @@ gulp.task('dev',
 );
 
 lazyRequireTask('lint', './tasks/lint', {
-  cacheFilePath: process.cwd() + '/tmp/lintCache.json',
-  src: 'app/**/*.js'
+    cacheFilePath: process.cwd() + '/tmp/lintCache.json',
+    src: 'app/**/*.js'
 });

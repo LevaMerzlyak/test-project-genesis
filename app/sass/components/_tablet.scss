@@ -1,0 +1,80 @@
+/* Tablet Styles */
+@media only screen and (min-width: 600px) {
+	.header {
+		height: 56px;
+	}
+	.main__logo {
+		width: 123px;
+		height: 36px;
+	}
+	.mainTxt {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.main__head {
+		text-align: left;
+	}
+	.visit__btn {
+		width: 148px;
+		margin-top: 16px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		color: #ffffff;
+		background-color: #d0021b;
+		border-radius: 3px;
+		transition: all 0.2s $ttf;
+		&:hover,
+		&:focus {
+			background-color: #fd223c;
+		}
+	}
+	.mainImg__wrap {
+		height: 300px;
+	}
+	.contentMenu {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+	.footer {
+		padding-top: 32px;
+		padding-bottom: 64px;
+		&:before {
+			background-image: url(../images/footer_tab.png);
+		}
+	}
+	.subscribe__txt {
+		text-align: left;
+	}
+	.subscribeForm {
+		position: relative;
+	}
+	.subscribeEmail {
+		width: 100%;
+		padding-left: 48px;
+		padding-right: 208px;
+		text-align: left;
+		border-radius: 3px 3px 3px 3px;
+	}
+	.subscribeSubmit {
+		width: 168px;
+		position: absolute;
+		right: 0;
+		top: 0;		
+		border-radius: 0px 3px 3px 0px;
+		transition: all 0.2s $ttf;
+	}
+	.footerNav {
+		display: flex;
+	}
+	.footerNav__item {
+		&:not(:last-child) {
+			margin-bottom: 0;
+			margin-right: 32px;
+		}
+	}
+	.footerNav__link {
+		font-size: 17px;
+		line-height: 23px;
+	}
+}

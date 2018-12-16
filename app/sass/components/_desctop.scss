@@ -1,0 +1,83 @@
+/* Desctop Styles */
+@media only screen and (min-width: 972px) {
+	.container {
+		width: 940px;
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.header {
+		height: 60px;
+	}
+	.header__nav {
+		position: relative;
+		height: 20px;
+		width: 741px;
+	}
+	.nav {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.nav__link {
+		opacity: 1;
+	}
+	.menuBtn {
+		display: none;
+	}
+	.nav__link {
+		line-height: 20px;
+	}
+	.mainImg {
+		width: 100%;
+		height: auto;
+	}
+	.content {
+		width: 620px;
+	}
+	.contentMenu {
+		padding-top: 28px;
+		padding-bottom: 28px;
+	}
+	.contentMenu__item {
+		&:not(:last-child) {
+			border-bottom: none;
+		}
+	}
+	.aside {
+		display: block;
+		width: 240px;
+	}
+	.footer {
+		&:before {
+			background-image: url(../images/footer.png);
+		}
+	}
+	.totop__btn {
+		background-color: #a7b4ba;
+		&:hover {
+			background-color: #7c8f98;
+		}
+	}
+}
+@media only screen and (min-width: 1100px) {
+	.footer {
+		display: flex;
+		justify-content: space-around;
+		align-items: flex-end;
+		padding-left: 0;
+		padding-right: 0;
+		padding-bottom: 56px;
+	}
+	.subscribeEmail {
+		width: 533px;
+	}
+	.subscribeForm {
+		margin-bottom: 0;
+	}
+	.footerNav {
+		height: 40px;
+		width: 506px;
+		align-items: center;
+	}
+}
