@@ -14,7 +14,7 @@
 </head>
 <body>
 	<header class="header">
-		<div class="container container_header">
+		<div class="container container_header" id="header1">
 			<a href="#" class="main__logo icon icon_logo">TOP 5 Best Dating Sites</a>
 			<div class="header__nav"> <!-- header__nav_open -->
 				<ul class="nav">
@@ -87,7 +87,9 @@
 				<h3 class="asideBest__head">BEST DATING SITES</h3>
 				<ul class="asideBest__list">
 					<li class="asideBest__item">
-						<div class="site__logo"><i class="icon"></i></div>
+						<div class="site__logo">
+							<i class="icon icon_val"></i>
+						</div>
 						<div class="site__txt">
 							<h4 class="site__name">Valentime</h4>
 							<div class="siteRate">
@@ -102,7 +104,9 @@
 						</div>
 					</li>
 					<li class="asideBest__item">
-						<div class="site__logo"><i class="icon"></i></div>
+						<div class="site__logo">
+							<i class="icon icon_rt"></i>
+						</div>
 						<div class="site__txt">
 							<h4 class="site__name">RomanceTale</h4>
 							<div class="siteRate">
@@ -117,7 +121,9 @@
 						</div>
 					</li>
 					<li class="asideBest__item">
-						<div class="site__logo"><i class="icon"></i></div>
+						<div class="site__logo">
+							<i class="icon icon_charm"></i>
+						</div>
 						<div class="site__txt">
 							<h4 class="site__name">Charmerly</h4>
 							<div class="siteRate">
@@ -132,7 +138,9 @@
 						</div>
 					</li>
 					<li class="asideBest__item">
-						<div class="site__logo"><i class="icon"></i></div>
+						<div class="site__logo">
+							<i class="icon icon_swan"></i>
+						</div>
 						<div class="site__txt">
 							<h4 class="site__name">LoveSwans</h4>
 							<div class="siteRate">
@@ -150,12 +158,14 @@
 			</div>
 			<div class="asideHot">
 				<h3 class="asideHot__head">HOT OR NOT?</h3>
-				<img src="" alt="" class="asideHot__img">
+				<div class="hot__img">
+					<img src="images/hot.png" alt="" class="hotImg">
+				</div>
 				<h5 class="asideHot__name">Maria, 21</h5>
 				<p class="asideHot__txt">I like to travel. I have been traveling for many years. One of my favorite...</p>
 				<div class="asideHot__btns">
-					<a href="#" class="hot__btn">Dislike</a>
-					<a href="#" class="hot__btn">Like</a>
+					<a href="#" class="hot__btn hot__btn_dislike">Dislike</a>
+					<a href="#" class="hot__btn hot__btn_like">Like</a>
 				</div>
 			</div>
 		</section>
@@ -182,6 +192,18 @@
 			</li>
 		</ul>
 	</footer>
+
+	<a href="#" class="totop__btn" id="scrollTop1">
+		<i class="icon icon_top"></i>
+	</a>
+
+	<script src="lib/jquery-3.3.1.min.js"></script>
+	<script src="js/openMenu.js"></script>
+	<script src="js/scrollUp.js"></script>
+	<script>
+		const m1 = new OpenMenu('#header1');
+		const s1 = new ScrollUp('#scrollTop1');
+	</script>
 
 </body>
 </html>
