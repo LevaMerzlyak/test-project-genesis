@@ -31,6 +31,16 @@ lazyRequireTask('images', './tasks/move', {
     dst: 'dist/images'
 });
 
+lazyRequireTask('scripts', './tasks/move', {
+    src: 'app/js/**/*.*',
+    dst: 'dist/js'
+});
+
+lazyRequireTask('lib', './tasks/move', {
+    src: 'app/lib/**/*.*',
+    dst: 'dist/lib'
+});
+
 lazyRequireTask('page', './tasks/move', {
     src: 'app/index.html',
     dst: 'dist'
@@ -39,13 +49,17 @@ lazyRequireTask('page', './tasks/move', {
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('sass', 'css', 'images', 'page'))
+    gulp.parallel('sass', 'css', 'scripts', 'lib', 'images', 'page'))
 );
 
 gulp.task('watch', function() {
     gulp.watch('app/sass/**/*.*', gulp.series('sass'));
 
     gulp.watch('app/css/**/*.*', gulp.series('css'));
+
+    gulp.watch('app/js/**/*.*', gulp.series('scripts'));
+
+    gulp.watch('app/lib/**/*.*', gulp.series('lib'));
 
     gulp.watch('app/images/**/*.*', gulp.series('images'));
 
